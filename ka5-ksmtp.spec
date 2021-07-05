@@ -33,6 +33,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Job-based library to send email through an SMTP server.
 
+%description -l pl.UTF-8
+Bazująca na zadaniach biblioteka do wysyłania emaili przez serwer SMTP.
+
 %package devel
 Summary:	Header files for %{kaname} development
 Summary(pl.UTF-8):	Pliki nagłówkowe dla programistów używających %{kaname}
