@@ -1,15 +1,15 @@
-%define		kdeappsver	21.12.1
+%define		kdeappsver	21.12.2
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		ksmtp
 Summary:	ksmtp
 Name:		ka5-%{kaname}
-Version:	21.12.1
+Version:	21.12.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	2a0ece4ff3e5d8294da89e9b30dbd7dd
+# Source0-md5:	ad5e7310e3db44cd4e71e156ac7cb957
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
