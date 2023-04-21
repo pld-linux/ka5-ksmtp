@@ -1,18 +1,18 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.12.3
+%define		kdeappsver	23.04.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		ksmtp
 Summary:	ksmtp
 Name:		ka5-%{kaname}
-Version:	22.12.3
-Release:	2
+Version:	23.04.0
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	7d1e0a1506826670584de231ce3c1397
+# Source0-md5:	7ac4e89a9bfacab413dfd7906ccd7506
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	Qt5Gui-devel >= 5.11.1
@@ -37,7 +37,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Job-based library to send email through an SMTP server.
 
 %description -l pl.UTF-8
-Bazująca na zadaniach biblioteka do wysyłania emaili przez serwer SMTP.
+Bazująca na zadaniach biblioteka do wysyłania emaili przez serwer
+SMTP.
 
 %package devel
 Summary:	Header files for %{kaname} development
@@ -84,13 +85,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%ghost %{_libdir}/libKPimSMTP.so.5
-%attr(755,root,root) %{_libdir}/libKPimSMTP.so.*.*.*
 %{_datadir}/qlogging-categories5/ksmtp.categories
+%ghost %{_libdir}/libKPim5SMTP.so.5
+%attr(755,root,root) %{_libdir}/libKPim5SMTP.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KPim
-%{_libdir}/cmake/KPimSMTP
-%{_libdir}/libKPimSMTP.so
 %{_libdir}/qt5/mkspecs/modules/qt_KSMTP.pri
+%{_includedir}/KPim5/KSMTP
+%{_includedir}/KPim5/ksmtp_version.h
+%{_libdir}/cmake/KPim5SMTP
+%{_libdir}/cmake/KPimSMTP
+%{_libdir}/libKPim5SMTP.so
