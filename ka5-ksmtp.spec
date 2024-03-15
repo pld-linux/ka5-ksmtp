@@ -1,32 +1,32 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		ksmtp
 Summary:	ksmtp
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	72223aa12862581ccc2c96f296bf751b
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	ad9b29f9c9788fe33a81318e90c54c52
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
-BuildRequires:	Qt6Gui-devel >= 5.11.1
-BuildRequires:	Qt6Network-devel >= 5.9.0
-BuildRequires:	Qt6Test-devel >= 5.9.0
+BuildRequires:	Qt5Core-devel >= %{qtver}
+BuildRequires:	Qt5Gui-devel >= 5.11.1
+BuildRequires:	Qt5Network-devel >= 5.9.0
+BuildRequires:	Qt5Test-devel >= 5.9.0
 BuildRequires:	cmake >= 3.20
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	gettext-devel
-BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf6-ki18n-devel >= %{kframever}
-BuildRequires:	kf6-kio-devel >= %{kframever}
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -83,12 +83,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libKPim6SMTP.so.*.*
-%ghost %{_libdir}/libKPim6SMTP.so.6
-%{_datadir}/qlogging-categories6/ksmtp.categories
+%{_datadir}/qlogging-categories5/ksmtp.categories
+%ghost %{_libdir}/libKPim5SMTP.so.5
+%attr(755,root,root) %{_libdir}/libKPim5SMTP.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KPim6/KSMTP
-%{_libdir}/cmake/KPim6SMTP
-%{_libdir}/libKPim6SMTP.so
+%{_libdir}/qt5/mkspecs/modules/qt_KSMTP.pri
+%{_includedir}/KPim5/KSMTP
+%{_libdir}/cmake/KPim5SMTP
+%{_libdir}/libKPim5SMTP.so
